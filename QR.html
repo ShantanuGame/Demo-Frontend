@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Display</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 50px;
+            font-family: Arial, sans-serif;
+            background: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #1f2937;
+        }
+
+        .qr-image {
+            width: 300px;
+            height: 300px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            margin: 5px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-download {
+            background: #4f46e5;
+            color: white;
+        }
+
+        .btn-download:hover {
+            background: #4338ca;
+        }
+
+        .btn-print {
+            background: #6b7280;
+            color: white;
+        }
+
+        .btn-print:hover {
+            background: #4b5563;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>QR Code</h1>
+        <!-- Replace the src with your QR image URL or path -->
+        <img src="image.png" alt="QR Code" class="qr-image" id="qrImage">
+        <div>
+            <button class="btn btn-download" onclick="downloadQR()">Download QR</button>
+            <button class="btn btn-print" onclick="printQR()">Print QR</button>
+        </div>
+    </div>
+
+    <script>
+        const qrImage = document.getElementById('qrImage');
+
+        // Download QR image
+        function downloadQR() {
+            const link = document.createElement('a');
+            link.href = qrImage.src;
+            link.download = 'qr-code.png';
+            link.click();
+        }
+
+        
+    </script>
+</body>
+</html>
